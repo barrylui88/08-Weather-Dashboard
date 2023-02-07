@@ -3,6 +3,7 @@ let searchForm = $("#search-form");
 let searchInput = $("#search-input");
 let searchButton = $("#search-button");
 let todaySection = $("#today");
+let forecastSection = $("#forecast");
 let cityNameDateText = $("#city-name-date");
 let todayTempText = $("#today-temperature");
 let todayWindText = $("#today-wind");
@@ -27,11 +28,59 @@ let dayPlus5Date = $("#day-plus-5-date");
 let dayPlus5Temp = $("#day-plus-5-temperature");
 let dayPlus5Wind = $("#day-plus-5-wind");
 let dayPlus5Humidity = $("#day-plus-5-humidity");
+let berlinButton = $("#berlin");
+let parisButton = $("#paris");
+let edinburghButton = $("#edinburgh");
+let madridButton = $("#madrid");
+let birminghamButton = $("#birmingham");
+let londonButton = $("#london");
 
 // Event Listeners
 searchButton.click(function (event) {
     event.preventDefault();
     queryTerm = searchInput.val();
+    callAPI();
+});
+
+searchButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = searchInput.val();
+    callAPI();
+});
+
+berlinButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = "berlin";
+    callAPI();
+});
+
+edinburghButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = "edinburgh";
+    callAPI();
+});
+
+parisButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = "paris";
+    callAPI();
+});
+
+madridButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = "madrid";
+    callAPI();
+});
+
+birminghamButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = "birmingham";
+    callAPI();
+});
+
+londonButton.click(function (event) {
+    event.preventDefault();
+    queryTerm = "london";
     callAPI();
 });
 
@@ -112,7 +161,6 @@ function callAPI () {
         responseForecastDay5Humidity = response["list"][39]["main"]["humidity"];
         updateScreen();
     })
-
 }
 
 // Functions
@@ -142,6 +190,6 @@ function updateScreen () {
     dayPlus5Temp.text(`Temperature: ${Math.floor(responseForecastDay5Temperature-273.15)}°C`);
     dayPlus5Wind.text(`Wind: ${responseForecastDay5Wind}kph`);
     dayPlus5Humidity.text(`Humidity: ${responseForecastDay5Humidity}%`);
+    todaySection.addClass("show");
+    forecastSection.addClass("show");
 }
-
-// Function Calls

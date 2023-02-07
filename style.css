@@ -1,16 +1,12 @@
 #today {
     padding: 20px;
     border-style: solid;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
-.hidden {
-    display: none;
-}
-
 #forecast {
-    display: flex;
+    display: none; 
     flex-direction:column;
 }
 
@@ -28,4 +24,15 @@
 .city-button {
     padding: 10px;
     margin: 10px;
+}
+
+.show{
+    display: flex !important;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
 }
