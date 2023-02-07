@@ -86,6 +86,7 @@ londonButton.click(function (event) {
 
 // JS Variables
 let responseCityNameDate;
+let responseCityDate;
 let responseTodayTemperature;
 let responseTodayWind;
 let responseTodayHumidity;
@@ -139,6 +140,7 @@ function callAPI () {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+        responseCityDate = response["list"][0]["dt_txt"];
         responseForecastDay1Date = response["list"][7]["dt_txt"];
         responseForecastDay1Temperature = response["list"][7]["main"]["temp"];
         responseForecastDay1Wind = response["list"][7]["wind"]["speed"];
@@ -165,28 +167,28 @@ function callAPI () {
 
 // Functions
 function updateScreen () {
-    cityNameDateText.text(responseCityNameDate);
+    cityNameDateText.text(`${responseCityNameDate} - ${responseCityDate.substring(0,10)}`);
     todayTempText.text(`Temperature: ${Math.floor(responseTodayTemperature-273.15)}°C`);
     todayWindText.text(`Wind: ${responseTodayWind}kph`);
     todayHumidityText.text(`Humidity: ${responseTodayHumidity}%`);
     searchInput.val("");
-    dayPlus1Date.text(responseForecastDay1Date);
+    dayPlus1Date.text(responseForecastDay1Date.substring(0,10));
     dayPlus1Temp.text(`Temperature: ${Math.floor(responseForecastDay1Temperature-273.15)}°C`);
     dayPlus1Wind.text(`Wind: ${responseForecastDay1Wind}kph`);
     dayPlus1Humidity.text(`Humidity: ${responseForecastDay1Humidity}%`);
-    dayPlus2Date.text(responseForecastDay2Date);
+    dayPlus2Date.text(responseForecastDay2Date.substring(0,10));
     dayPlus2Temp.text(`Temperature: ${Math.floor(responseForecastDay2Temperature-273.15)}°C`);
     dayPlus2Wind.text(`Wind: ${responseForecastDay2Wind}kph`);
     dayPlus2Humidity.text(`Humidity: ${responseForecastDay2Humidity}%`);
-    dayPlus3Date.text(responseForecastDay3Date);
+    dayPlus3Date.text(responseForecastDay3Date.substring(0,10));
     dayPlus3Temp.text(`Temperature: ${Math.floor(responseForecastDay3Temperature-273.15)}°C`);
     dayPlus3Wind.text(`Wind: ${responseForecastDay3Wind}kph`);
     dayPlus3Humidity.text(`Humidity: ${responseForecastDay3Humidity}%`);
-    dayPlus4Date.text(responseForecastDay4Date);
+    dayPlus4Date.text(responseForecastDay4Date.substring(0,10));
     dayPlus4Temp.text(`Temperature: ${Math.floor(responseForecastDay4Temperature-273.15)}°C`);
     dayPlus4Wind.text(`Wind: ${responseForecastDay4Wind}kph`);
     dayPlus4Humidity.text(`Humidity: ${responseForecastDay4Humidity}%`);
-    dayPlus5Date.text(responseForecastDay5Date);
+    dayPlus5Date.text(responseForecastDay5Date.substring(0,10));
     dayPlus5Temp.text(`Temperature: ${Math.floor(responseForecastDay5Temperature-273.15)}°C`);
     dayPlus5Wind.text(`Wind: ${responseForecastDay5Wind}kph`);
     dayPlus5Humidity.text(`Humidity: ${responseForecastDay5Humidity}%`);
