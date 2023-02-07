@@ -118,7 +118,7 @@ let queryTerm; // e.g. London
 let queryURLBottom = "&appid=";
 let APIKey = "1f171651aeaa44734ffe7198c60a1f2c";
 // FORECAST SECTION
-let queryForecastURLTop = "http://api.openweathermap.org/data/2.5/forecast?q=";
+let queryForecastURLTop = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
 function callAPI () {
     // Today URL
