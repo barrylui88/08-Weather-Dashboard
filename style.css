@@ -1,6 +1,8 @@
 #today {
     padding: 20px;
     border-style: solid;
+    display: flex;
+    flex-direction: column;
 }
 
 .hidden {
@@ -9,10 +11,21 @@
 
 #forecast {
     display: flex;
-    flex-direction: row;
+    flex-direction:column;
 }
 
 .forecast-box {
+    margin-right: 10px;
     border-style: solid;
+    padding: 10px;
+}
 
+#button-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.city-button {
+    padding: 10px;
+    margin: 10px;
 }
