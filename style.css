@@ -1,0 +1,18 @@
+#today {
+    padding: 20px;
+    border-style: solid;
+}
+
+.hidden {
+    display: none;
+}
+
+#forecast {
+    display: flex;
+    flex-direction: row;
+}
+
+.forecast-box {
+    border-style: solid;
+
+}

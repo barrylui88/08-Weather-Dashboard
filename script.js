@@ -1,16 +1,25 @@
 // Links to HTML
 let searchForm = $("#search-form");
 let searchInput = $("#search-input");
-let searchButton = $("search-button");
+let searchButton = $("#search-button");
+let todaySection = $("#today");
+let cityNameDateText = $("#city-name-date");
+let todayTempText = $("#today-temperature");
+let todayWindText = $("#today-wind");
+let todayHumidityText = $("#today-humidity");
 
 // Event Listeners
-searchForm.click(function (event) {
+searchButton.click(function (event) {
     event.preventDefault();
     queryTerm = searchInput.val();
     callAPI();
 });
 
 // JS Variables
+let responseCityNameDate;
+let responseTodayTemperature;
+let responseTodayWind;
+let responseTodayHumidity;
 
 // API URL Construction
 let queryURLTop = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -23,10 +32,22 @@ function callAPI () {
         url: queryURLTop + queryTerm + queryURLBottom + APIKey,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
+        console.log(response);
+        responseCityNameDate = `${response["name"]}, ${response["sys"]["country"]}`;
+        responseTodayTemperature = response["main"]["temp"];
+        responseTodayWind = response["wind"]["speed"];
+        responseTodayHumidity = response["main"]["humidity"];
+        updateScreen();
     })
 }
 
 // Functions
+function updateScreen () {
+    cityNameDateText.text(responseCityNameDate);
+    todayTempText.text(`Temperature: ${Math.floor(responseTodayTemperature-273.15)}°C`);
+    todayWindText.text(`Wind: ${responseTodayWind}kph`);
+    todayHumidityText.text(`Humidity: ${responseTodayHumidity}%`);
+    searchInput.val("");
+}
 
 // Function Calls

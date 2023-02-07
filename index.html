@@ -7,8 +7,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="style.css" />
   <!-- Bootstrap Links -->
-  <!-- <link rel="stylesheet" href="styles/reset.css" /> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>Weather Dashboard</title>
@@ -33,7 +34,7 @@
         <form id="search-form" class="form">
           <div class="form-inline form-group">
             <div class="input-group">
-              <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
+              <input class="form-input weather-search" type="text" id="search-input" placeholder="Enter city name"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
               <div class="input-group-append">
                 <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
@@ -48,8 +49,30 @@
       </aside>
 
       <div class="col-lg-9 pb-3">
-        <section id="today" class="mt-3" role="region" aria-live="polite"></section>
-        <section id="forecast" class="row mt-3" role="region" aria-live="polite"></section>
+        <section id="today" class="mt-3" role="region" aria-live="polite">
+          <h1 id="city-name-date">London 01/01/2023</h1>
+          <p id="today-temperature"></p>
+          <p id="today-wind"></p>
+          <p id="today-humidity"></p>
+        </section>
+        <section id="forecast" class="row mt-3" role="region" aria-live="polite">
+          <h1>5 Day Forecast</h1>
+          <div class="forecast-box" id="day-plus-1">
+            1
+          </div>
+          <div class="forecast-box" id="day-plus-2">
+            2
+          </div>
+          <div class="forecast-box" id="day-plus-3">
+            3
+          </div>
+          <div class="forecast-box" id="day-plus-4">
+            4
+          </div>
+          <div class="forecast-box" id="day-plus-5">
+            5
+          </div>
+        </section>
       </div>
     </div>
   </div>
